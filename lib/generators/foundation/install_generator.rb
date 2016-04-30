@@ -65,15 +65,19 @@ module Foundation
       end
 
       def javascripts_base_dir
-        File.join("app", "assets", "javascripts")
+        File.join("app", "assets", "javascripts", engine_namespace)
       end
 
       def stylesheets_base_dir
-        File.join("app", "assets", "stylesheets")
+        File.join("app", "assets", "stylesheets", engine_namespace)
       end
 
       def layouts_base_dir
-        File.join("app", "views", "layouts")
+        File.join("app", "views", "layouts", engine_namespace)
+      end
+
+      def engine_namespace
+        Rails::Generators.namespace.to_s.underscore
       end
     end
   end
